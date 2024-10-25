@@ -1,0 +1,15 @@
+{
+    "seed": 1234,
+    "input_noisy_wavs_dir": "VoiceBank+DEMAND/wav_noisy",
+    "output_dir": "./generated_files",
+    "bmodel_path": "./bmodels/mpsenet_1b_fp32.bmodel",
+    "dev_id": 1,
+    "center": true,
+    
+    "compress_factor": 0.3, 
+
+    "sampling_rate": 16000,
+    "n_fft": 400,
+    "hop_size": 100,
+    "win_size": 400
+}

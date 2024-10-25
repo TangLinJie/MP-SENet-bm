@@ -44,6 +44,26 @@ Here is an example:
 python inference.py --checkpoint_file best_ckpt/g_best_vb --output_dir generated_files/MP-SENet_VB
 ```
 
+## ONNX Export
+```
+python3 onnx_export.py --input_noisy_wavs_dir VoiceBank+DEMAND/wav_noisy --output_dir ./generated_files --checkpoint_file best_ckpt/g_best_vb
+```
+This command will generate onnx file `./mpsenet.onnx`.
+
+## SAIL Inference
+Firstly, please refer to [Compilation and Installation of sophon-sail](https://github.com/sophgo/sophon-demo/blob/release/docs/Environment_Install_Guide_EN.md#33-compilation-and-installation-of-sophon-sail) to install sophon-sail.
+Then, run
+```
+# download MP-SENET Bmodel
+pip3 install dfss -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade
+python3 -m dfss --url=open@sophgo.com:test/mpsenet/mpsenet_1b_fp32.bmodel
+mkdir bmodels
+mv mpsenet_1b_fp32.bmodel ./bmodels
+# inference
+python3 sail_inference.py
+```
+You can also change the config file `config_mpsenet.json` if there is a need.
+
 ## Model Structure
 ![model](Figures/model.png)
 
